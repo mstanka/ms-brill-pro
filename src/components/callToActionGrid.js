@@ -5,7 +5,8 @@ import CallToActionBlock from './callToActionBlock'
 
 const CallToActionGridWrapper = styled.section`
   max-width: 800px;
-  margin: 0 auto;
+  margin: 2rem auto;
+
 `
 
 const CallToActionGrid = ({ title, callToActions }) => {
@@ -15,6 +16,9 @@ const CallToActionGrid = ({ title, callToActions }) => {
       {callToActions.map((callToAction, i) => {
         return (
         <CallToActionBlock 
+        featuredImage ={callToAction.featured_image.url}
+        buttonLabel={callToAction.button_label}
+        buttonDestination={`/${callToAction.button_destination._meta.uid}`}
         title={callToAction.call_to_action_title}
         content={callToAction.content}
         key={i} />
