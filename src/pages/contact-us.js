@@ -77,7 +77,6 @@ const ContentWrapper = styled.section`
 `
 
 const ContactUs = props => {
-  console.log(props)
   return (
     <Layout>
       <ContentWrapper>
@@ -102,7 +101,7 @@ const ContactUs = props => {
                 return (
                   <div key={i}>
                     <textarea
-                    name={field.field_name}
+                      name={field.field_name}
                       required={field.required === "Yes"}
                       placeholder={field.field_name}
                     />
