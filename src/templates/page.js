@@ -15,9 +15,11 @@ export const query = graphql`
               ... on PRISMIC_PageBodyCall_to_action_grid {
                 type
                 label
+                primary {
+                  section_title
+                }
                 fields {
                   button_destination {
-                    _linkType
                     ... on PRISMIC_Contact_page {
                       _meta {
                         uid
@@ -29,9 +31,6 @@ export const query = graphql`
                   content
                   featured_image
                 }
-                primary {
-                  section_title
-                }
               }
             }
             content
@@ -39,6 +38,7 @@ export const query = graphql`
             _meta {
               uid
               id
+              type
             }
           }
         }
@@ -52,21 +52,17 @@ const PageWrapper = styled.section`
   margin: 2rem auto;
 `
 
-const Page = props => {
-  console.log(props)
+const Page = ({ data }) => {
+  const prismicContent = data.prismic.allPages.edges[0]
+  if (!prismicContent) return null
+  const document = prismicContent.node
 
   return (
     <Layout>
       <PageWrapper>
-        <RichText
-          render={props.data.prismic.allPages.edges[0].node.page_title}
-        />
-
-        <RichText render={props.data.prismic.allPages.edges[0].node.content} />
-
-        {!!props.data.prismic.allPages.edges[0].node.body && (
-          <SliceZone body={props.data.prismic.allPages.edges[0].node.body} />
-        )}
+        <RichText render={document.page_title} />
+        <RichText render={document.content} />
+        {!!document.body && <SliceZone body={document.body} />}
       </PageWrapper>
     </Layout>
   )
