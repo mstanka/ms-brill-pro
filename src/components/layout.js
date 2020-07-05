@@ -29,6 +29,11 @@ const navigationQuery = graphql`
                     uid
                   }
                 }
+                ... on PRISMIC_Contact_page {
+                  _meta {
+                    uid
+                  }
+                }
               }
             }
           }
@@ -48,9 +53,12 @@ const Header = styled.header`
   box-sizing: border-box;
 `
 const Branding = styled.div`
-  color: orange;
-  font-weight: bold;
-  font-size: 20px;
+  a {
+    color: orange;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+  }
 `
 
 const NavLinks = styled.div`
@@ -81,7 +89,9 @@ const Layout = ({ children }) => {
             return (
               <>
                 <Branding>
-                  {data.prismic.allNavigations.edges[0].node.branding}
+                  <Link to="/">
+                    {data.prismic.allNavigations.edges[0].node.branding}
+                  </Link>
                 </Branding>
 
                 <NavLinks>
