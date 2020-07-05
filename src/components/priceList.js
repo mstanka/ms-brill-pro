@@ -1,5 +1,5 @@
 import React from "react"
-import { RichText } from "prismic-reactjs"
+import RichText from "./richText"
 import styled from "styled-components"
 import PriceItem from "./priceItem"
 
