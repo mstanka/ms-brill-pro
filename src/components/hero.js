@@ -25,8 +25,7 @@ const Hero = ({ title, content, backgroundImage }) => {
     <HeroWrapper backgroundImage={backgroundImage}>
       <div>
         <RichText render={title} />
-
-        <p>{content}</p>
+        <RichText render={content} />       
       </div>
     </HeroWrapper>
   )
