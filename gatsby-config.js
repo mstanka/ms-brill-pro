@@ -15,7 +15,7 @@ module.exports = {
             type: `Page`,
             match: `/:uid`,
             path: `/`,
-            component: require.resolve(`./src/templates/page.js`),
+            component: require.resolve(`${__dirname}/src/templates/page.js`),
           },
         ],
       },
