@@ -1,6 +1,3 @@
-const { apiEndpoint } = require("./prismic-config")
-var repo = /([^\/]+)\.prismic\.io\/graphql/.exec(apiEndpoint)
-
 module.exports = {
   siteMetadata: {
     title: `Gatsby Prismic Landing page`,
@@ -12,7 +9,7 @@ module.exports = {
     {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
-        repositoryName: repo[1], // Loads the repo name from prismic configuration
+        repositoryName: `brill-pro`, 
         path: `/preview`,
         previews: true,
         pages: [
@@ -20,7 +17,7 @@ module.exports = {
             type: `Page`,
             match: `/:uid`,
             path: `/page-preview`,
-            component: require.resolve(`${__dirname}/src/templates/page.js`),
+            component: require.resolve(`./src/templates/page.js`),
           },
         ],
       },
