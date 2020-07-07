@@ -1,15 +1,18 @@
+const { apiEndpoint } = require("./prismic-config")
+var repo = /([^\/]+)\.prismic\.io\/graphql/.exec(apiEndpoint)
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Gatsby Prismic Landing page`,
+    description: `This is a Gatsby Prismic Landing page based on Gatsby default starter.`,
+    author: `@mstanka`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
-        repositoryName: `brill-pro`,
+        repositoryName: repo[1], // Loads the repo name from prismic configuration
         path: `/preview`,
         previews: true,
         pages: [
