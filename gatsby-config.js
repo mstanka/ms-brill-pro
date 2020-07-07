@@ -10,11 +10,13 @@ module.exports = {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
         repositoryName: `brill-pro`,
+        path: `/preview`,
+        previews: true,
         pages: [
           {
             type: `Page`,
             match: `/:uid`,
-            path: `/`,
+            path: `/page-preview`,
             component: require.resolve(`${__dirname}/src/templates/page.js`),
           },
         ],
