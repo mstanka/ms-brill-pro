@@ -7,9 +7,9 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-source-prismic-graphql`,
+      resolve: `@prismicio/gatsby-source-prismic-graphql`,
       options: {
-        repositoryName: `brill-pro`, 
+        repositoryName: `brill-pro`,
         path: `/preview`,
         previews: true,
         pages: [
